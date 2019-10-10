@@ -1,0 +1,20 @@
+<div><h1><%= @service.name %></h1></div>
+<div><h2><%= @service.descripcion_servicio %></h2></div>
+
+<%= image_tag @service.picture , height:500  if @service.picture.attached? %>
+
+<%= button_to "Comprar", citas_path, params: {service_id: @service.id} %>
+<%= form_with(url: "/citas", method: "post") do |f| %>
+  date:<%= f.date_field :date %>
+  <%= f.hidden_field :service_id, value: @service.id%>
+  <%= f.submit %>
+  
+<%end%>
+
+<h3>Menu</h3>
+<%= link_to "Edit", edit_service_path(@service) %><br>
+<%= link_to "Delete", service_path(@service),
+            method: :delete,
+            data: {confirm: "Are you sure"}%><br>
+
+<%=link_to "All service", services_path %>

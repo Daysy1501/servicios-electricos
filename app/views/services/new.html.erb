@@ -1,0 +1,12 @@
+<div
+  <h1>New_Service</h1>
+</div>
+  
+<%= form_for Service.new do |c| %><br><br>
+<label> Name_servicio: <%= c.text_field :name %><br/></label><br>
+descripcion_servicio: <%= c.text_field :descripcion_servicio %><br/>
+
+<label>picture:</label>
+<%= c.file_field :picture %>
+<%= c.submit %>
+<% end %>

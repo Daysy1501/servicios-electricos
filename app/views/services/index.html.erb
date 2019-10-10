@@ -1,0 +1,17 @@
+<h1> Electrical Service</h1>
+
+<h2> Quienes somos?</h2>
+<h3>Somos una empresa que brinda servicios en lineas EnergizadasyMantenimiento, brindando confianza y seguridad a nuestros clientes con innovacion y vanguardia. </h3>
+<h2> Que hacemos?</h2>
+<h3>Brindamos soluciones para el desarrollo confiable y eficiente de monitoreo de calidad de potencia y energía, pruebas en equipos de subestaciones eléctricas, sistemas industriales y los más avanzados sistemas de protección, control y transferencia de sistemas de potencia.</h3>
+<h2> Mision </h2>
+<h3>Ser la empresa líder a nivel nacional e incursionar en el mercado latinoamericano con innovación y crecimiento constante</h3>
+
+<h2><%= link_to "new service", new_service_path %></h2>
+
+<% @services.each do |service| %>
+  <% if service.picture.attached? %>
+    <%= link_to(image_tag(service.picture, height:200), "/services/#{service.id}") %><br><br><br>
+
+  <% end %>
+<% end %>
