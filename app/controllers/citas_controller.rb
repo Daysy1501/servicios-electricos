@@ -1,4 +1,12 @@
 class CitasController < ApplicationController
+  def create
+    # service = Service.find(params[:service_id])
+    # current_user.services << service
+    # ultima_cita = current_user.citas.last
+    # ultima_cita.update(date: params[:date])
+    ultima_cita = Cita.create(date: params[:date], user_id: current_user.id, service_id: params[:service_id])
+    redirect_to "/citas/#{ultima_cita.id}"
+  end
 
   def update
     cita=Cita.find(params[:id])
@@ -9,12 +17,7 @@ class CitasController < ApplicationController
     @cita=Cita.new
   end
 
-  def create
-    service = Service.find(params[:service_id])
-    current_user.services << service
-    ultima_cita = current_user.citas.last
-    redirect_to "/citas/#{ultima_cita.id}"
-  end
+
   def show
     @cita=Cita.find(params[:id])
   end

@@ -1,5 +1,5 @@
 
 
 <%= @cita.service.name%>
-<%= @cita.date%>
+<%= @cita.date.strftime("%m/%d/%Y") rescue nil%>
 <%= @cita.user.email%>
